@@ -18,7 +18,7 @@ _Use GitHub Actions to publish your project to a Docker image._
   Do not use quotes on the <details> tag attributes.
 -->
 
-<!--step0
+<!--step0-->
 
 GitHub Actions makes it easier than ever to incorporate continuous delivery (CD) into your repositories. This course will teach you what is needed to test and deliver artifacts that are ready for deployment.
 
@@ -38,7 +38,7 @@ GitHub Actions makes it easier than ever to incorporate continuous delivery (CD)
    ![Create a new repository](https://user-images.githubusercontent.com/1221423/169618722-406dc508-add4-4074-83f0-c7a7ad87f6f3.png)
 3. After your new repository is created, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
 
-endstep0-->
+<!--endstep0-->
 
 <!--
   <<< Author notes: Step 1 >>>
@@ -60,7 +60,7 @@ First, take a moment to examine the image below. It shows the relationship betwe
 **Continuous integration** (CI) is a practice where developers integrate tested code into a shared branch several times per day. **Continuous delivery** (CD) is the next phase of **continuous integration** (CI), where we deploy our changes to the world.
 
 [**Docker**](https://www.docker.com/why-docker) is an engine that allows you to run containers.
-Containers are packages of software that can run reliably in different environments. Containers include everything needed to run the application. Containers are lightweight in comparison to virtual machines. A **dockerfile** is a text document that contains all the commands and instructions necessary to build a Docker Image. A **Docker image** is an executable package comprised of code, dependancies, libraries, a runtime, environment variables, and configuration files. A **Docker container** is a runtime instance of a Docker Image.
+Containers are packages of software that can run reliably in different environments. Containers include everything needed to run the application. Containers are lightweight in comparison to virtual machines. A **Dockerfile** is a text document that contains all the commands and instructions necessary to build a Docker Image. A **Docker image** is an executable package comprised of code, dependancies, libraries, a runtime, environment variables, and configuration files. A **Docker container** is a runtime instance of a Docker Image.
 
 We'll start by creating the workflow file to publish a Docker image to GitHub Packages.
 
@@ -149,7 +149,7 @@ You can now [merge](https://docs.github.com/en/get-started/quickstart/github-glo
   Define terms and link to docs.github.com.
 -->
 
-<details id=4 open>
+<details id=4>
 <summary><h2>Step 4: Pull your image</h2></summary>
 
 _Now things are running! :sparkles:_
@@ -164,7 +164,7 @@ Before we can use this Docker image, you will need to generate a [personal acces
 - write:packages
 - read:packages
 
-![screenshot personal access token creation page with boxes for repo (all), write:packages, and read:packages checked](https://i.imgur.com/Ue9BJoV.png)
+![screenshot personal access token creation page with boxes for repo (all), write:packages, and read:packages checked](https://i.imgur.com/Ue9BJoV.png)<!-- Now that the box for read:packages is the child of the box for write:packages, this screenshot should be changed. -->
 
 We will use this token to log in to Docker, and authenticate with the package.
 
@@ -182,11 +182,14 @@ If everything went well, 🤞 you should see `Login Succeeded` in your terminal.
 ### :keyboard: Activity: Pull your image
 
 1. Copy and paste the `pull` command from the package instructions into your terminal. It should look something like this:
-   - `docker pull docker.pkg.github.com/YOURNAME/js-build/tic-tac-toe:f29`
-   ![screenshot of the pull command on the GitHub package page](https://i.imgur.com/pFQgfSZ.png)
+   - `docker pull docker.pkg.github.com/YOURNAME/publish-packages/game:TAG`
+   ![screenshot of the pull command on the GitHub package page](https://i.imgur.com/pFQgfSZ.png)<!-- This screenshot should be changed. -->
+   - _Tip: To reach this page, click the **Code** tab at the top of your repository. Then, find the navigation bar below the repository description, and click the **Packages** heading link_
+1. Replace `YOURNAME` with your GitHub username.
+1. Replace `TAG` with the image tag.
 1. Press **Enter**.
-1. You should see output indicating that the pull was successful, like `Status: Downloaded newer image for docker`.
-   ![screenshot of successful Docker image output](https://i.imgur.com/i07kF2J.png)
+1. You should see output indicating that the pull was successful, like `Status: Downloaded newer image for docker.pkg.github.com/YOURNAME/publish-packages/game:TAG`.
+   ![screenshot of successful Docker image output](https://i.imgur.com/i07kF2J.png)<!-- This screenshot should be changed. -->
 1. _We can't automatically verify this step for you, so please continue on to the next step below!_
 
 </details>
@@ -197,7 +200,7 @@ If everything went well, 🤞 you should see `Login Succeeded` in your terminal.
   Define terms and link to docs.github.com.
 -->
 
-<details id=5 open>
+<details id=5>
 <summary><h2>Step 5: Run your image</h2></summary>
 
 _Nicely done grabbing your Docker image! :relaxed:_
@@ -206,15 +209,15 @@ Let's trying running it.
 
 ### :keyboard: Activity: Run your image
 
-1. Find your image information by typing `Docker image ls`.
-   ![screenshot of output from Docker image ls command: lists docker images, REPOSITORY TAG and docker URL](https://i.imgur.com/UAwRXiq.png)
+1. Find your image information by typing `docker image ls`.
+   ![screenshot of output from Docker image ls command: lists docker images, REPOSITORY TAG and docker URL](https://i.imgur.com/UAwRXiq.png)<!-- This screenshot should be changed. -->
 1. Use the following command to run a container from your image:
    ```
    docker run -d -it --rm -p 8080:80 --name ttt <YOUR_IMAGE_NAME:TAG>
    ```
 1. Replace `YOUR_IMAGE_NAME` with your image name under the `REPOSITORY` column.
 1. Replace `TAG` with the image tag under the `TAG` column
-   ![example of running the docker command listed above](https://i.imgur.com/hr6N9nk.png)
+   ![example of running the docker command listed above](https://i.imgur.com/hr6N9nk.png)<!-- This screenshot should be changed. -->
 1. Press **Enter**.
 1. If everything went well, you will see hash value as output on your screen.
 1. _We can't automatically verify this step for you, so please continue on to the next step below!_
@@ -226,7 +229,7 @@ Let's trying running it.
   Review what we learned, ask for feedback, provide next steps.
 -->
 
-<details id=X open>
+<details id=X>
 <summary><h2>Finish</h2></summary>
 
 _Congratulations friend, you've completed this course!_
